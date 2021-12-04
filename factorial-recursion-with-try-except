@@ -1,0 +1,26 @@
+import sys
+
+def factorial1(n):
+  if (n < 0):
+    sys.exit("Factorial argument could be positive integer only")
+  elif (n == 1):
+    return 1
+  else:
+    n = n*factorial1(n-1)
+    return n
+    
+    
+    
+    
+    
+print("Please enter positive integer: ")
+x = int(input())
+
+if __name__ == '__main__':
+  try:
+      print("Factorial of "+str(x)+" is  "+str(factorial1(x)))
+  except RecursionError as re:
+  #except RuntimeError as re:  #for python 2.x compatibility
+      print(re)
+      print()
+      print(str(x)+" is too big for the current recursion limit of "+str(sys.getrecursionlimit()))
